@@ -1,0 +1,8 @@
+rootProject.name = "SimplerRouter"
+include ':app'
+include ':srouter-annotation'
+include ':srouter-compiler'
+include ':srouter-api'
+include ':biz-shop'
+include ':biz-tax'
+include ':lib-provider'
