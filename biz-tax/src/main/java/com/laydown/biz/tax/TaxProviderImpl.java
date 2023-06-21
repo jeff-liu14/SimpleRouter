@@ -6,6 +6,10 @@ import android.widget.Toast;
 import com.laydown.lib.provider.ITaxProvider;
 import com.laydown.srouter.annotation.Route;
 
+/**
+ * 在biz-tax模块中实现ITaxProvider接口
+ * 并且使用@Route标签注册服务
+ */
 @Route(path = "/tax/provider")
 public class TaxProviderImpl implements ITaxProvider {
     private Context mContext;

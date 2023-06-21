@@ -28,16 +28,23 @@ android {
                 ]
             }
         }
+        buildConfigField "String", "SIMPLE_ROUTER_KEY", "\"${project.ext.simpleRouterKey}\""
+        buildConfigField "Boolean", "OPEN_AES", "Boolean.parseBoolean(\"${project.ext.openAes}\")"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

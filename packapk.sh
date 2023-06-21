@@ -18,19 +18,19 @@ pack_release_fun() {
     ./gradlew clean
     cleanAutoInject
     ./gradlew buildRelease
-    ./gradlew assembleRelease --stacktrace
+    ./gradlew assembleRelease
 }
 
 ### debug渠道
 pack_install_debug_fun() {
-    adb install app/build/outputs/apk/debug/Stah_V1.0_debug.apk
-    adb shell am start -n  cn.laydown.stah/cn.laydown.stah.MainActivity
+    adb install app/build/outputs/apk/debug/SimpleRouter_V1.0_debug.apk
+    adb shell am start -n  com.laydown.srouter/com.laydown.srouter.MainActivity
 }
 
 ### release渠道
 pack_install_release_fun() {
-    adb install app/build/outputs/apk/release/Stah_V1.0_release.apk
-    adb shell am start -n  cn.laydown.stah/cn.laydown.stah.MainActivity
+    adb install app/build/outputs/apk/release/SimpleRouter_V1.0_release.apk
+    adb shell am start -n  com.laydown.srouter/com.laydown.srouter.MainActivity
 }
 
 #### 帮助

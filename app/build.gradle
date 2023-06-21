@@ -7,6 +7,10 @@ plugins {
 Properties properties = new Properties()
 InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream();
 properties.load(inputStream)
+//加载Android配置信息
+project.ext.storeFileName = properties.getProperty("STORE_FILE_NAME")
+project.ext.keyPassword = properties.getProperty("KEY_PASSWORD")
+project.ext.storeAlias = properties.getProperty("STORE_ALIAS")
 //SimpleRouter路由配置信息
 project.ext.simpleRouterKey = properties.getProperty("SIMPLE_ROUTER_KEY")
 project.ext.openAes = properties.getProperty("OPEN_AES")
@@ -35,10 +39,35 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile file(project.ext.storeFileName)
+            storePassword project.ext.keyPassword
+            keyAlias project.ext.storeAlias
+            keyPassword project.ext.keyPassword
+        }
         release {
-            minifyEnabled false
+            storeFile file(project.ext.storeFileName)
+            storePassword project.ext.keyPassword
+            keyAlias project.ext.storeAlias
+            keyPassword project.ext.keyPassword
+        }
+    }
+
+    buildTypes {
+        deubg {
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -48,14 +77,27 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "SimpleRouter_V${android.defaultConfig.versionName}_${variant.name}.apk"
+            }
+    }
 }
 
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

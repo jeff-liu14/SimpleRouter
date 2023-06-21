@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        launcher = Helper.startActivityForResult(this, intent) { result ->
+        launcher = Helper.startActivityForResult(this) { result ->
             when (result?.resultCode) {
                 RESULT_OK -> {
                     Toast.makeText(
@@ -35,11 +35,21 @@ class MainActivity : AppCompatActivity() {
                 .withString("name", "app-product:透传参数")
                 .navigateForResultX(this)
             launcher?.launch(intent)
+//            SimpleRouter.getInstance()
+//                .build("/app/demo/product")
+//                .withString("name", "app-product:透传参数")
+//                .navigateForResult(this, 10001)
         }
         findViewById<Button>(R.id.btn_profile).setOnClickListener {
             SimpleRouter.getInstance()
                 .build("/app/demo/profile")
                 .withString("name", "app-profile:透传参数")
+                .navigate(this)
+            SimpleRouter.getInstance()
+                .build("/app/demo/profile")
+                .withBundle(Bundle().apply {
+                    putString("name", "app-profile:透传参数")
+                })
                 .navigate(this)
         }
         findViewById<Button>(R.id.btn_shop).setOnClickListener {
