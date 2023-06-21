@@ -18,9 +18,9 @@
 
 ### Demo展示
 
-##### [Demo apk下载](https://github.com/jeff-liu14/SimpleRouter/demo/SimpleRouter_V1.0_release.apk)
+##### [Demo apk下载](https://github.com/jeff-liu14/SimpleRouter/blob/main/demo/SimpleRouter_V1.0_release.apk)
 
-#### <img src="https://github.com/jeff-liu14/SimpleRouter/demo/demo.gif" width="300"/> 
+#### <img src="https://github.com/jeff-liu14/SimpleRouter/blob/main/demo/demo.gif" width="300"/> 
 
 
 ---
