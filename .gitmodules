@@ -1,0 +1,9 @@
+[submodule "srouter-annotation"]
+	path = srouter-annotation
+	url = git@github.com:jeff-liu14/srouter-annotation.git
+[submodule "srouter-compiler"]
+	path = srouter-compiler
+	url = git@github.com:jeff-liu14/srouter-compiler.git
+[submodule "srouter-api"]
+	path = srouter-api
+	url = git@github.com:jeff-liu14/srouter-api.git

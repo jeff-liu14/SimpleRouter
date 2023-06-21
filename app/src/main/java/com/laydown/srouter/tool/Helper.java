@@ -1,4 +1,4 @@
-package com.laydown.srouter;
+package com.laydown.srouter.tool;
 
 import android.content.Intent;
 
@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 
 public class Helper {
     public interface CallBack {
-        public void onActivityResult(@Nullable ActivityResult result);
+        void onActivityResult(@Nullable ActivityResult result);
     }
 
     public static ActivityResultLauncher<Intent> startActivityForResult(@NonNull ComponentActivity activity, @NonNull Intent simpleRouterBuildIntent, @Nullable CallBack callBack) {

@@ -1,8 +1,10 @@
 rootProject.name = "SimplerRouter"
 include ':app'
-include ':srouter-annotation'
-include ':srouter-compiler'
-include ':srouter-api'
 include ':biz-shop'
 include ':biz-tax'
 include ':lib-provider'
+if (Boolean.parseBoolean(ROUTER_DEBUG_MODE)) {
+    include ':srouter-annotation:srouter-annotation'
+    include ':srouter-compiler:srouter-compiler'
+    include ':srouter-api:srouter-api'
+}

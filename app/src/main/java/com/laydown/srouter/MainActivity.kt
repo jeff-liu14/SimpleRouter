@@ -8,8 +8,9 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import com.laydown.srouter.annotation.Route
 import com.laydown.srouter.api.SimpleRouter
+import com.laydown.srouter.tool.Helper
 
-@Route(path = "/main/home")
+@Route(path = "/app/home")
 class MainActivity : AppCompatActivity() {
     var launcher: ActivityResultLauncher<Intent>? = null
     override fun onCreate(savedInstanceState: Bundle?) {

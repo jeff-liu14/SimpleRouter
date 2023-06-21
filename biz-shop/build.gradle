@@ -23,8 +23,8 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
-                        SIMPLE_ROUTER_KEY  : project.ext.simpleRouterKey,
-                        OPEN_AES           : project.ext.openAes
+                        SIMPLE_ROUTER_KEY: project.ext.simpleRouterKey,
+                        OPEN_AES         : project.ext.openAes
                 ]
             }
         }
@@ -56,8 +56,14 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation project(path: ':srouter-api')
-    implementation project(path: ':srouter-annotation')
     implementation project(path: ':lib-provider')
-    kapt project(path: ':srouter-compiler')
+    if (Boolean.parseBoolean(ROUTER_DEBUG_MODE)) {
+        implementation project(path: ':srouter-annotation')
+        implementation project(path: ':srouter-api')
+        kapt project(path: ':srouter-compiler')
+    } else {
+        implementation 'com.github.jeff-liu14:srouter-annotation:1.0'
+        implementation 'com.github.jeff-liu14:srouter-api:1.0'
+        kapt 'com.github.jeff-liu14:srouter-compiler:1.0'
+    }
 }
