@@ -1,7 +1,7 @@
 
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-#SimpleRouter
+# SimpleRouter
 
 
 ```
@@ -10,45 +10,28 @@
 
 --- 
 
-###最新版本 
+### 最新版本 
 
-<table border="1">
-<tr>
-  <td width=15%><center>模块</center></td>
-  <td width=25%><center>srouter-annotation</center></td>
-  <td width=25%><center>srouter-compiler</center></td>
-  <td width=25%><center>srouter-api</center></td>
-</tr>
-<tr>
-  <td style="text-align:center;vertical-align: middle !important;">版本</td>
-  <td style="text-align:center;vertical-align: middle !important;">
-	<a href="https://jitpack.io/#jeff-liu14/srouter-annotation">
-		<img src="https://jitpack.io/v/jeff-liu14/srouter-annotation.svg"/>
-	</a>
-  </td>
-  <td style="text-align:center;vertical-align: middle !important;">
-	<a href="https://jitpack.io/#jeff-liu14/srouter-compiler">
-		<img src="https://jitpack.io/v/jeff-liu14/srouter-compiler.svg"/>
-	</a>
-  </td>
-  <td style="text-align:center;vertical-align: middle !important;">
-	<a href="https://jitpack.io/#jeff-liu14/srouter-api">
-		<img src="https://jitpack.io/v/jeff-liu14/srouter-api.svg"/>
-	</a>
-  </td>
-</tr>
-</table>
+模块|srouter-annotation|srouter-compiler|srouter-api|
+---|---|---|---
+<center>版本<center/>|<center>[![](https://jitpack.io/v/jeff-liu14/srouter-annotation.svg)](https://jitpack.io/#jeff-liu14/srouter-annotation)<center/>|<center>[![](https://jitpack.io/v/jeff-liu14/srouter-compiler.svg)](https://jitpack.io/#jeff-liu14/srouter-compiler)<center/>|<center>[![](https://jitpack.io/v/jeff-liu14/srouter-api.svg)](https://jitpack.io/#jeff-liu14/srouter-api)<center/>
 
 
 ---
 ### 接入方式
 1. 在build.gradle文件中添加依赖和配置
-   
+
 	参数示意：
+
+	```
+	> SIMPLE_ROUTER_KEY   ->   配置生成的路由文件加密秘钥，长度为16个字
+	> OPEN_AES            ->   是否开启加密
+	> SROUTER_ANNOTATION  ->   annotation版本号(查看上面最新版本)
+	> SROUTER_API         ->   api版本号(查看上面最新版本)
+	> SROUTER_COMPILER    ->   compiler版本号(查看上面最新版本)
+	```	
 	
-	| SIMPLE_ROUTER_KEY | OPEN_AES | SROUTER_ANNOTATION | SROUTER_API | SROUTER_COMPILER |
-	---|---|---|---|---|
-	配置生成的路由文件加密秘钥，长度为16个字|是否开启加密|annotation版本号(查看上面最新版本)|api版本号(查看上面最新版本)|compiler版本号(查看上面最新版本)|
+	代码配置：
 	
 	```groovy
 	
@@ -81,7 +64,8 @@
     ``` kotlin
     #activity
     @Route(path = "/app/home")
-	class MainActivity : AppCompatActivity() {}  	
+	class MainActivity : AppCompatActivity() {} 	
+	 	
 	# fragment
 	@Route(path = "/app/demo/product/fragment")
 	class ProductFragment : Fragment() {}
@@ -145,7 +129,6 @@
 	```kotlin
 	SimpleRouter.getInstance()
 	            .build("/app/demo/profile")
-	            .withString("name", "app-profile:透传参数")
 	            .navigate(this)
 	```
 
