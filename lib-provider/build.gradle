@@ -43,6 +43,6 @@ dependencies {
     if (Boolean.parseBoolean(ROUTER_DEBUG_MODE)) {
         implementation project(path: ':srouter-api')
     } else {
-        implementation 'com.github.jeff-liu14:srouter-api:1.0'
+        implementation "com.github.jeff-liu14:srouter-api:$SROUTER_API"
     }
 }

@@ -68,8 +68,8 @@ dependencies {
         implementation project(path: ':srouter-api')
         kapt project(path: ':srouter-compiler')
     } else {
-        implementation 'com.github.jeff-liu14:srouter-annotation:1.0'
-        implementation 'com.github.jeff-liu14:srouter-api:1.0'
-        kapt 'com.github.jeff-liu14:srouter-compiler:1.0'
+        implementation "com.github.jeff-liu14:srouter-annotation:$SROUTER_ANNOTATION"
+        implementation "com.github.jeff-liu14:srouter-api:$SROUTER_API"
+        kapt "com.github.jeff-liu14:srouter-compiler:$SROUTER_COMPILER"
     }
 }
