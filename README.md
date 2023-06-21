@@ -105,10 +105,10 @@
 
     ``` 
     #FastJson
--dontwarn com.alibaba.fastjson.**
--keep class com.alibaba.fastjson.**{*; }
-#SimpleRouter
--keep class * extends com.laydown.srouter.api.provider.IProvider
+	-dontwarn com.alibaba.fastjson.**
+	-keep class com.alibaba.fastjson.**{*; }
+	#SimpleRouter
+	-keep class * extends com.laydown.srouter.api.provider.IProvider
     ```
   
 ---
