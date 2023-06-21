@@ -12,9 +12,9 @@
 
 ### 最新版本 
 
-模块|srouter-annotation|srouter-compiler|srouter-api|
+模块|srouter-annotation|srouter-compiler|srouter-api
 ---|---|---|---
-<center>版本<center/>|<center>[![](https://jitpack.io/v/jeff-liu14/srouter-annotation.svg)](https://jitpack.io/#jeff-liu14/srouter-annotation)<center/>|<center>[![](https://jitpack.io/v/jeff-liu14/srouter-compiler.svg)](https://jitpack.io/#jeff-liu14/srouter-compiler)<center/>|<center>[![](https://jitpack.io/v/jeff-liu14/srouter-api.svg)](https://jitpack.io/#jeff-liu14/srouter-api)<center/>
+版本 | [![](https://jitpack.io/v/jeff-liu14/srouter-annotation.svg)](https://jitpack.io/#jeff-liu14/srouter-annotation) | [![](https://jitpack.io/v/jeff-liu14/srouter-compiler.svg)](https://jitpack.io/#jeff-liu14/srouter-compiler) | [![](https://jitpack.io/v/jeff-liu14/srouter-api.svg)](https://jitpack.io/#jeff-liu14/srouter-api)
 
 
 ---
