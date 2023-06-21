@@ -16,6 +16,12 @@
 ---|---|---|---
 版本 | [![](https://jitpack.io/v/jeff-liu14/srouter-annotation.svg)](https://jitpack.io/#jeff-liu14/srouter-annotation) | [![](https://jitpack.io/v/jeff-liu14/srouter-compiler.svg)](https://jitpack.io/#jeff-liu14/srouter-compiler) | [![](https://jitpack.io/v/jeff-liu14/srouter-api.svg)](https://jitpack.io/#jeff-liu14/srouter-api)
 
+### Demo展示
+
+##### [Demo apk下载](https://github.com/jeff-liu14/SimpleRouter/demo/SimpleRouter_V1.0_release.apk)
+
+#### <img src="https://github.com/jeff-liu14/SimpleRouter/demo/demo.gif" width="300"/> 
+
 
 ---
 ### 接入方式

@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity() {
 //                .navigateForResult(this, 10001)
         }
         findViewById<Button>(R.id.btn_profile).setOnClickListener {
-            SimpleRouter.getInstance()
-                .build("/app/demo/profile")
-                .withString("name", "app-profile:透传参数")
-                .navigate(this)
+//            SimpleRouter.getInstance()
+//                .build("/app/demo/profile")
+//                .withString("name", "app-profile:透传参数")
+//                .navigate(this)
             SimpleRouter.getInstance()
                 .build("/app/demo/profile")
                 .withBundle(Bundle().apply {
