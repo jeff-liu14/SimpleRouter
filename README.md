@@ -259,8 +259,8 @@
 	        }
 	        return true
 	    }
-}
-//在SimpleRouter中注册	
-SimpleRouter.setInterceptorCallBack(CommonInterceptorImpl())
+    }
+    //在SimpleRouter中注册	
+    SimpleRouter.setInterceptorCallBack(CommonInterceptorImpl())
 	
 	```
