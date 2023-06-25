@@ -8,11 +8,11 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import com.laydown.srouter.annotation.Route
 import com.laydown.srouter.api.SimpleRouter
-import com.laydown.srouter.tool.Helper
+import com.laydown.srouter.api.util.Helper
 
 @Route(path = "/app/home")
 class MainActivity : AppCompatActivity() {
-    var launcher: ActivityResultLauncher<Intent>? = null
+    private lateinit var launcher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,15 +26,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
         findViewById<Button>(R.id.btn_load_route).setOnClickListener {
-            SimpleRouter.getInstance()
-                .scanRoute(BuildConfig.SIMPLE_ROUTER_KEY, BuildConfig.OPEN_AES)
+            SimpleRouter.scanRoute(BuildConfig.SIMPLE_ROUTER_KEY, BuildConfig.OPEN_AES)
         }
         findViewById<Button>(R.id.btn_product).setOnClickListener {
-            val intent = SimpleRouter.getInstance()
+            SimpleRouter.getInstance()
                 .build("/app/demo/product")
                 .withString("name", "app-product:透传参数")
-                .navigateForResultX(this)
-            launcher?.launch(intent)
+                .navigateForResultX(this, launcher)
 //            SimpleRouter.getInstance()
 //                .build("/app/demo/product")
 //                .withString("name", "app-product:透传参数")
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btn_shop).setOnClickListener {
             SimpleRouter.getInstance()
-                .build("/biz/shop/home")
+                .build("/biz/shop/home1")
                 .withString("name", "biz-shop:透传参数")
                 .navigate(this)
         }

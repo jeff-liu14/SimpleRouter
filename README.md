@@ -80,15 +80,8 @@
 3. 初始化SDK
 
     ``` kotlin
-   SimpleRouter.getInstance().apply {
-            // 路由初始化
-            init(this@MainApplication)
-            /**
-             *  设置路由文件加密key及是否开启加密算法；
-             *  SIMPLE_ROUTER_KEY和OPEN_AES需要与build.gradle中配置的参数保持一致
-             */
-            scanRoute(BuildConfig.SIMPLE_ROUTER_KEY, BuildConfig.OPEN_AES)
-        }    
+       SimpleRouter.init(this)
+       SimpleRouter.scanRoute(BuildConfig.SIMPLE_ROUTER_KEY, BuildConfig.OPEN_AES)
     ```
 
 4. 路由跳转操作
@@ -174,13 +167,13 @@
                     }
                 }
             }
+            
     // 使用SimpleRouter获取构造的intent
-    val intent = SimpleRouter.getInstance()
+    SimpleRouter.getInstance()
                 .build("/app/demo/product")
                 .withString("name", "app-product:透传参数")
-                .navigateForResultX(this)
-    launcher.launch(intent)
-	```
+                .navigateForResultX(this, launcher)	
+   ```
 	
 5. 获取Fragment
 
@@ -231,4 +224,43 @@
                     .build("/tax/provider")
                     .navigate(this@ShopActivity) as ITaxProvider
     provider.sayHello("ShopActivity call Tax Provider")
+	```
+
+7. 全局降级策略
+	
+	```kotlin
+	//实现全局降级策略服务接口DegradeService
+	class CommonDegradeImpl : DegradeService {
+		    override fun onLost(context: Context, targetMeta: TargetMeta) {
+		        Toast.makeText(context, "Path: " + targetMeta.path + " Lost.", Toast.LENGTH_SHORT).show()
+		    }
+	}
+	
+	//在SimpleRouter中进行注册
+	SimpleRouter.setDegradeService(CommonDegradeImpl())
+	
+	```
+8. 全局拦截策略
+
+	```kotlin
+	//实现全局拦截策略服务接口InterceptorCallBack
+	//return false-页面跳转被拦截 true-继续进行路由操作
+	class CommonInterceptorImpl : InterceptorCallBack {
+	    override fun onContinue(context: Context, targetMeta: TargetMeta): Boolean {
+	        when (targetMeta.path) {
+	            "/app/demo/product1" -> {
+	                Toast.makeText(context, "Product页面被拦截", Toast.LENGTH_SHORT).show()
+	                return false
+	            }
+	            "/app/demo/profile" -> {
+	                Toast.makeText(context, "Profile页面被拦截", Toast.LENGTH_SHORT).show()
+	                return false
+	            }
+	        }
+	        return true
+	    }
+}
+//在SimpleRouter中注册	
+SimpleRouter.setInterceptorCallBack(CommonInterceptorImpl())
+	
 	```

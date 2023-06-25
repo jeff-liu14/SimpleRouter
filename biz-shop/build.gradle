@@ -65,9 +65,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(path: ':lib-provider')
     if (Boolean.parseBoolean(ROUTER_DEBUG_MODE)) {
-        implementation project(path: ':srouter-annotation')
-        implementation project(path: ':srouter-api')
-        kapt project(path: ':srouter-compiler')
+        implementation project(path: annotation_name)
+        implementation project(path: api_name)
+        kapt project(path: compiler_name)
     } else {
         implementation "com.github.jeff-liu14:srouter-annotation:$SROUTER_ANNOTATION"
         implementation "com.github.jeff-liu14:srouter-api:$SROUTER_API"

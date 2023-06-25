@@ -45,7 +45,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     if (Boolean.parseBoolean(ROUTER_DEBUG_MODE)) {
-        implementation project(path: ':srouter-api')
+        implementation project(path: api_name)
     } else {
         implementation "com.github.jeff-liu14:srouter-api:$SROUTER_API"
     }
